@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            startActivity(QrActivity.newIntent(applicationContext))
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
         }
     }
 
@@ -36,4 +36,6 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
 }
