@@ -7,7 +7,7 @@
               android:background="@color/colorGreyBackground">
 
     <ImageView android:layout_width="wrap_content"
-               android:layout_height="66dp"
+               android:layout_height="62dp"
                android:src="@drawable/header"/>
 
     <LinearLayout android:layout_width="match_parent"
@@ -43,7 +43,7 @@
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="4 saat sonra tekrar bekleriz :)"
+                  android:text="12 saat sonra tekrar bekleriz :)"
                   android:textColor="@color/colorblack"
                   android:textSize="24sp"
                   android:layout_marginTop="60dp"/>
@@ -143,7 +143,7 @@
                   android:layout_height="wrap_content"
                   android:paddingStart="12dp"
                   android:paddingEnd="12dp"
-                  android:text="*5TL faturanıza yansıyacaktır."
+                  android:text="10TL faturanıza yansıyacaktır."
                   android:textColor="@color/colorblack"
                   android:textSize="16sp"
                   android:layout_marginTop="100dp"/>
