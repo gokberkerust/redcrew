@@ -220,6 +220,7 @@ class QrReaderActivity : AppCompatActivity() {
                     storeDate(sharedPreferences)
                 } else {
                     displayErrorToast("Günlük QR ile internet kazanma hakkınız dolmuştur. ${getRemainingTime(counterTime)} sonra tekrar deneyebilirsiniz")
+                    startBarcodeDetection()
                     return
                 }
             }
@@ -263,10 +264,16 @@ class QrReaderActivity : AppCompatActivity() {
             toast = Toast.makeText(
                 applicationContext,
                 message,
-                Toast.LENGTH_SHORT
+                Toast.LENGTH_LONG
             )
         }
         toast?.show()
+    }
+
+    override fun onBackPressed() {
+        removeToastMessage()
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
     }
 
     enum class QrCodes(val text: String, val counterEnabled: Boolean) {
