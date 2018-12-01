@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -71,6 +72,16 @@ class QrReaderActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    private fun allowInternetQr() {
+        internettext.setTypeface(null, Typeface.BOLD)
+        internetImage.setImageResource(R.drawable.check)
+    }
+
+    private fun denyInternetQr() {
+        internettext.setTypeface(null, Typeface.NORMAL)
+        internetImage.setImageResource(R.drawable.cross)
     }
 
     private fun onSurfaceCreated() {
@@ -174,7 +185,7 @@ class QrReaderActivity : AppCompatActivity() {
 
     private fun onQrCodeDetected(code: String) {
         println("QR CODE: $code")
-        val qrCode = when(code){
+        val qrCode = when (code) {
             QrCodes.Donate.text -> QrCodes.Donate
             QrCodes.Internet1.text -> QrCodes.Internet1
             QrCodes.Internet2.text -> QrCodes.Internet2
@@ -183,7 +194,7 @@ class QrReaderActivity : AppCompatActivity() {
             QrCodes.SMS.text -> QrCodes.SMS
             else -> QrCodes.UnRecognized
         }
-        if(qrCode != QrCodes.UnRecognized){
+        if (qrCode != QrCodes.UnRecognized) {
             barcodeDetector?.release()
             startActivity(ApprovalActivity.newIntent(applicationContext, qrCode))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)

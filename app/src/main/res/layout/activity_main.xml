@@ -7,17 +7,19 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <ImageView android:layout_width="match_parent"
-               android:layout_height="match_parent"
-    android:src="@drawable/mainpage"
-    android:scaleY="1.01"/>
 
-    <android.support.design.widget.FloatingActionButton
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/mainpage"
+            android:scaleY="1.01"/>
+
+    <ImageView
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/qr_button"
+            android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
