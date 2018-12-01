@@ -22,7 +22,7 @@ import rx.schedulers.Schedulers
 class ApprovalActivity : AppCompatActivity() {
 
     private lateinit var service: APIService
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_approval)
@@ -47,12 +47,11 @@ class ApprovalActivity : AppCompatActivity() {
             service.sendSms(
                 SendSmsRequestModel(
                     SendSmsRequestPayload(
-                        endUserId = 905423872518,
+                        endUserId = 905423872239,
                         message = "Test message"
                     )
                 )
             ), {
-                println("response: ${it?.sendSmsResponse?.resultCode}")
             }, {
 
             })
