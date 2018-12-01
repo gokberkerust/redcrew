@@ -13,14 +13,13 @@
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
-                  android:visibility="visible"
+                  android:visibility="gone"
                   android:gravity="center_horizontal"
                   android:id="@+id/internetResultLayout">
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="Tebrikler!"
-                  android:textColor="@color/colorblack"
                   android:textSize="32sp"
                   android:layout_marginTop="40dp"/>
 
@@ -29,7 +28,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="500MB"
-                android:textColor="@color/colorblack"
                 android:textSize="36sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"/>
@@ -37,14 +35,12 @@
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="kazandınız"
-                  android:textColor="@color/colorblack"
                   android:textSize="32sp"
                   android:layout_marginTop="20dp"/>
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="12 saat sonra tekrar bekleriz :)"
-                  android:textColor="@color/colorblack"
                   android:textSize="24sp"
                   android:layout_marginTop="60dp"/>
 
@@ -55,7 +51,6 @@
                   android:paddingEnd="12dp"
                   android:textAlignment="center"
                   android:text="İnternetinizi 07/12/2018 20:00'e kadar keyifle kullanabilirsiniz."
-                  android:textColor="@color/colorblack"
                   android:textSize="18sp"
                   android:layout_marginTop="100dp"/>
 
@@ -72,8 +67,7 @@
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="VODAFONE HACKHATON "
-                  android:textColor="@color/colorblack"
-                  android:textSize="32sp"
+                  android:textSize="28sp"
                   android:textStyle="bold"
                   android:layout_marginTop="20dp"
                   android:layout_centerHorizontal="true"/>
@@ -81,14 +75,13 @@
         <ImageView android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:src="@drawable/redcrew"
-                   android:layout_marginTop="20dp"/>
+                   android:layout_marginTop="30dp"/>
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="Red Crew"
-                  android:textColor="@color/colorblack"
                   android:textSize="32sp"
-                  android:layout_marginTop="300dp"
+                  android:layout_marginTop="350dp"
                   android:layout_centerHorizontal="true"/>
 
 
@@ -98,10 +91,9 @@
                   android:paddingEnd="12dp"
                   android:textAlignment="center"
                   android:layout_centerHorizontal="true"
-                  android:text="SMS'iniz işleme alınmıştır"
-                  android:textColor="@color/colorblack"
+                  android:text="SMS talebiniz işleme alınmıştır."
                   android:textSize="18sp"
-                  android:layout_marginTop="420dp"/>
+                  android:layout_marginTop="500dp"/>
 
     </RelativeLayout>
 
@@ -121,8 +113,7 @@
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="Bağışınız SMS yoluyla yollanmıştır."
-                  android:textColor="@color/colorblack"
+                  android:text="Bağışınız SMS yoluyla gönderilmiştir"
                   android:textSize="32sp"
                   android:layout_gravity="center"
                   android:gravity="center"
@@ -133,7 +124,6 @@
                   android:layout_height="wrap_content"
                   android:gravity="center"
                   android:text="Mutluluk, paylaştıkça artar..."
-                  android:textColor="@color/colorblack"
                   android:layout_gravity="center"
                   android:textSize="24sp"
                   android:layout_marginTop="60dp"/>
@@ -143,10 +133,10 @@
                   android:layout_height="wrap_content"
                   android:paddingStart="12dp"
                   android:paddingEnd="12dp"
-                  android:text="10TL faturanıza yansıyacaktır."
-                  android:textColor="@color/colorblack"
-                  android:textSize="16sp"
-                  android:layout_marginTop="100dp"/>
+                  android:layout_gravity="center"
+                  android:text="*10TL faturanıza yansıyacaktır."
+                  android:textSize="12sp"
+                  android:layout_marginTop="170dp"/>
 
     </LinearLayout>
 
@@ -159,16 +149,16 @@
 
         <ImageView android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:src="@drawable/tariff_result"
+                   android:src="@drawable/sacma"
                    android:layout_marginTop="40dp"
                    android:layout_gravity="center"/>
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="Tarife değişikliği talebiniz alınmıştır. Talebiniz tamamlandığında SMS ile bilgilendirileceksiniz.
+                  android:text="Tarife değişikliği talebiniz alınmıştır. \n \n\nTalebiniz tamamlandığında SMS ile bilgilendirileceksiniz.
 Talebinizin durumunu 'Tarifem ve paketlerim' menüsündeki 'İşlem Geçmişi' ekranından takip edebilirsiniz.
 "
-                  android:textColor="@color/colorblack"
+                  android:textColor="@color/colorgrey"
                   android:textSize="18sp"
                   android:paddingStart="16dp"
                   android:textAlignment="center"

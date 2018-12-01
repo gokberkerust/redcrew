@@ -14,7 +14,7 @@
 
         <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="66dp"
+                android:layout_height="62dp"
                 android:src="@drawable/header"/>
 
         <LinearLayout
@@ -39,7 +39,7 @@
                     android:id="@+id/charityAmount"
                     android:textSize="32sp"
                     android:textStyle="bold"
-                    android:text="5TL"
+                    android:text="10 TL"
                     android:layout_marginTop="50dp"/>
 
 
@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="28sp"
-                    android:text="Bağış Yapılacaktır."
+                    android:text="Bağış yapılacaktır."
                     android:layout_marginTop="50dp"/>
 
 
@@ -58,7 +58,7 @@
                 android:layout_height="320dp"
                 android:id="@+id/smsLayout"
                 android:orientation="vertical"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:gravity="center_horizontal">
 
             <TextView
@@ -80,18 +80,21 @@
 
 
             <TextView
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="28sp"
-                    android:text="takımına SMS yollanacaktır"
-                    android:layout_marginTop="30dp"/>
+                    android:text="takımına SMS gönderilecektir."
+                    android:layout_marginTop="30dp"
+                    android:textAlignment="center"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="SMS bedeli 2.69 TL'dir."
-                    android:layout_marginTop="50dp"/>
+                    android:text="SMS bedeli 2.69 TL' dir."
+                    android:layout_marginTop="20dp"/>
 
         </LinearLayout>
 
@@ -149,10 +152,16 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true">
         <TextView
                 android:layout_marginTop="12dp"
-                android:text="Talebiniz Gerçekleştirilecektir.Onaylıyor musunuz?"
-                android:textColor="@color/colorblack"
+                android:text="Talebiniz gerçekleştirilecektir, onaylıyor musunuz?"
                 android:textSize="18sp"
                 android:gravity="center"
                 android:layout_marginBottom="12dp"
@@ -174,11 +183,11 @@
                     android:textColor="@color/colorwhite"
                     android:text="Evet"
                     android:background="@color/colorRed"
+                    android:layout_marginBottom="24dp"
             />
 
 
         </LinearLayout>
-
     </LinearLayout>
 
 </RelativeLayout>
