@@ -4,9 +4,11 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.SurfaceHolder
@@ -17,6 +19,7 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.redcrew.redcrew.utils.DeviceScreenUtil
 import kotlinx.android.synthetic.main.activity_qr.*
+import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.roundToInt
 
@@ -41,6 +44,11 @@ class QrReaderActivity : AppCompatActivity() {
         initLayout()
         initCameraSource()
         startBarcodeDetection()
+        RedCrewApp.listener = object : Listener {
+            override fun onBackPressedCall() {
+                finish()
+            }
+        }
     }
 
     override fun onResume() {
@@ -174,7 +182,7 @@ class QrReaderActivity : AppCompatActivity() {
 
     private fun onQrCodeDetected(code: String) {
         println("QR CODE: $code")
-        val qrCode = when(code){
+        val qrCode = when (code) {
             QrCodes.Donate.text -> QrCodes.Donate
             QrCodes.Internet1.text -> QrCodes.Internet1
             QrCodes.Internet2.text -> QrCodes.Internet2
@@ -183,14 +191,43 @@ class QrReaderActivity : AppCompatActivity() {
             QrCodes.SMS.text -> QrCodes.SMS
             else -> QrCodes.UnRecognized
         }
-        if(qrCode != QrCodes.UnRecognized){
+        if (qrCode != QrCodes.UnRecognized) {
+            if (qrCode.counterEnabled) {
+                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                val counterTime = sharedPreferences.getLong(RedCrewApp.COUNTER_TIME_KEY, -1L)
+                if (counterTime == -1L) {
+                    storeDate(sharedPreferences)
+                } else {
+                    displayErrorToast("Günlük QR ile internet kazanma hakkınız dolmuştur. ${getRemainingTime(counterTime)} sonra tekrar deneyebilirsiniz")
+                }
+            }
             barcodeDetector?.release()
             startActivity(ApprovalActivity.newIntent(applicationContext, qrCode))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
         } else {
-            displayErrorToast()
+            displayErrorToast("Hatalı bir QR okuttunuz.")
             startBarcodeDetection()
         }
+    }
+
+    private fun storeDate(sharedPreferences: SharedPreferences) {
+
+        val calender = Calendar.getInstance()
+        val editor = sharedPreferences.edit()
+
+        editor.putLong(RedCrewApp.COUNTER_TIME_KEY, calender.timeInMillis)
+        editor.apply()
+    }
+
+    private fun getRemainingTime(counterTime: Long): String {
+        val calendar = Calendar.getInstance()
+        val currentTime = calendar.timeInMillis
+
+        val remainingTime = currentTime - counterTime
+        val remainingMinutes = remainingTime / (1000 * 60)
+
+        val remainingHours = remainingMinutes % 60
+        return "$remainingHours saat ${remainingMinutes.div(remainingHours)} dakika"
     }
 
     fun removeToastMessage() {
@@ -198,24 +235,29 @@ class QrReaderActivity : AppCompatActivity() {
     }
 
     @SuppressLint("ShowToast")
-    fun displayErrorToast() {
+    fun displayErrorToast(message: String) {
         if (toast == null) {
             toast = Toast.makeText(
-                applicationContext, "Hatalı bir QR okuttunuz.",
+                applicationContext,
+                message,
                 Toast.LENGTH_SHORT
             )
         }
         toast?.show()
     }
 
-    enum class QrCodes(val text: String) {
-        Donate("Bağış"),
-        Internet1("internet1"),
-        Internet2("internet2"),
-        Internet3("internet3"),
-        Tariff("Paket"),
-        SMS("SMS"),
-        UnRecognized("unRecognized")
+    enum class QrCodes(val text: String, val counterEnabled: Boolean) {
+        Donate("Bağış", false),
+        Internet1("internet1", true),
+        Internet2("internet2", true),
+        Internet3("internet3", true),
+        Tariff("Paket", true),
+        SMS("SMS", true),
+        UnRecognized("unRecognized", true)
+    }
+
+    interface Listener {
+        fun onBackPressedCall()
     }
 
     companion object {

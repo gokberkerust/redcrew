@@ -53,8 +53,10 @@ class ApprovalActivity : AppCompatActivity() {
             }
         }
         approveButton.setOnClickListener {
+            RedCrewApp.listener?.onBackPressedCall()
             startActivity(ResultActivity.newIntent(applicationContext, qrCode))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+            finish()
         }
     }
 
@@ -97,7 +99,6 @@ class ApprovalActivity : AppCompatActivity() {
                         errorHandler(error)
                     }
                 })
-
     }
 
 
