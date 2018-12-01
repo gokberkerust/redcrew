@@ -16,7 +16,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/charityName"
-                android:textSize="28dp"
+                android:textSize="28sp"
                 android:text="Lösev Vakfına"
                 android:layout_marginTop="50dp"/>
 
@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/charityAmount"
-                android:textSize="32dp"
+                android:textSize="32sp"
                 android:textStyle="bold"
                 android:text="5TL"
                 android:layout_marginTop="50dp"/>
@@ -33,7 +33,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="28dp"
+                android:textSize="28sp"
                 android:text="Bağış Yapılacaktır."
                 android:layout_marginTop="50dp"/>
 
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/smsName"
-                android:textSize="28dp"
+                android:textSize="28sp"
                 android:text="Hackathon 2018 için"
                 android:layout_marginTop="50dp"/>
 
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/teamName"
-                android:textSize="32dp"
+                android:textSize="32sp"
                 android:textStyle="bold"
                 android:text="RED CREW"
                 android:layout_marginTop="50dp"/>
@@ -68,7 +68,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="28dp"
+                android:textSize="28sp"
                 android:text="takımına SMS yollanıcaktır"
                 android:layout_marginTop="50dp"/>
 
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tariffName"
-                android:textSize="28dp"
+                android:textSize="28sp"
                 android:text="Saçma Güzel Online M"
                 android:layout_marginTop="50dp"/>
 
@@ -98,28 +98,28 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:layout_marginTop="8dp"
                     android:text="Instagram Paketi"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:layout_marginTop="5dp"
                     android:text="Gamer Video Paketi"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:layout_marginTop="5dp"
                     android:text="Müzik Paketi"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:layout_marginTop="5dp"
                     android:text="Sınırsız Whatsapp"/>
 
@@ -151,7 +151,7 @@
                 android:layout_height="48dp"
                 android:textColor="@color/colorwhite"
                 android:text="Evet"
-                android:background="@color/red"
+                android:background="@color/colorRed"
         />
 
         <Button
@@ -160,7 +160,7 @@
                 android:layout_height="48dp"
                 android:textColor="@color/colorwhite"
                 android:text="iptal"
-                android:background="@color/lightGrey"
+                android:background="@color/colorLightGrey"
         />
 
     </LinearLayout>
