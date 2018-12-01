@@ -18,14 +18,10 @@ import rx.schedulers.Schedulers
  * Created by Gökberk Erüst on 1.12.2018.
  *
  */
-class ConfirmationActivity : AppCompatActivity() {
+class ApprovalActivity : AppCompatActivity() {
 
     private lateinit var service: APIService
-
-    override fun onStart() {
-        super.onStart()
-    }
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -87,7 +83,7 @@ class ConfirmationActivity : AppCompatActivity() {
         private const val QR_CODE_KEY = "qrCode"
 
         fun newIntent(context: Context, qrCode: QrReaderActivity.QrCodes): Intent {
-            val intent = Intent(context, ConfirmationActivity::class.java)
+            val intent = Intent(context, ApprovalActivity::class.java)
             intent.putExtra(QR_CODE_KEY, qrCode)
             return intent
         }

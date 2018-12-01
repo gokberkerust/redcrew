@@ -23,7 +23,7 @@
         <activity android:name=".QrReaderActivity"
                   android:screenOrientation="portrait"
                   />
-        <activity android:name=".ConfirmationActivity"
+        <activity android:name=".ApprovalActivity"
                   android:screenOrientation="portrait" />
     </application>
 

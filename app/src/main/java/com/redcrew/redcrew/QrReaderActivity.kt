@@ -185,7 +185,7 @@ class QrReaderActivity : AppCompatActivity() {
         }
         if(qrCode != QrCodes.UnRecognized){
             barcodeDetector?.release()
-            startActivity(ConfirmationActivity.newIntent(applicationContext, qrCode))
+            startActivity(ApprovalActivity.newIntent(applicationContext, qrCode))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
         } else {
             displayErrorToast()
