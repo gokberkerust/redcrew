@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -79,6 +80,23 @@ class QrReaderActivity : AppCompatActivity() {
             }
         })
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val counterTime = sharedPreferences.getLong(RedCrewApp.COUNTER_TIME_KEY, -1L)
+        if (counterTime == -1L) {
+            allowInternetQr()
+        } else {
+            denyInternetQr()
+        }
+    }
+
+    private fun allowInternetQr() {
+        internettext.setTypeface(null, Typeface.BOLD)
+        internetImage.setImageResource(R.drawable.check)
+    }
+
+    private fun denyInternetQr() {
+        internettext.setTypeface(null, Typeface.NORMAL)
+        internetImage.setImageResource(R.drawable.cross)
     }
 
     private fun onSurfaceCreated() {
