@@ -16,6 +16,8 @@ import rx.Single
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import java.util.*
+
 
 class ResultActivity : AppCompatActivity() {
 
@@ -29,6 +31,10 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun initLayout() {
+
+        val mbList = listOf("100 MB", "250 MB", "500 MB" )
+        val randIndex = Random().nextInt(2)
+        internetMbAmount.text = mbList[randIndex]
 
         val qrCode = intent.getSerializableExtra(ResultActivity.QR_CODE_KEY) as QrReaderActivity.QrCodes
         when (qrCode) {
