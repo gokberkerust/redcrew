@@ -33,8 +33,11 @@ class ResultActivity : AppCompatActivity() {
 
     companion object {
 
-        fun newIntent(context: Context): Intent {
+        private const val QR_CODE_KEY = "qrCode"
+
+        fun newIntent(context: Context, qrCode: QrReaderActivity.QrCodes): Intent {
             val intent = Intent(context, ResultActivity::class.java)
+            intent.putExtra(QR_CODE_KEY, qrCode)
             return intent
         }
     }

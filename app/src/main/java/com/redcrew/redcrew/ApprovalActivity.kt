@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.redcrew.redcrew.utils.network.APIService
 import com.redcrew.redcrew.utils.network.SendSmsRequestModel
 import com.redcrew.redcrew.utils.network.SendSmsRequestPayload
 import kotlinx.android.synthetic.main.activity_approval.*
-import kotlinx.android.synthetic.main.content_main.*
 import retrofit2.HttpException
 import rx.Single
 import rx.Subscription
@@ -31,18 +31,34 @@ class ApprovalActivity : AppCompatActivity() {
     }
 
     private fun initLayout() {
-        sendSms()
-        approveButton.setOnClickListener {
-            startActivity(ResultActivity.newIntent(applicationContext))
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+        val qrCode = intent.getSerializableExtra(QR_CODE_KEY) as QrReaderActivity.QrCodes
+        when (qrCode) {
+
+            QrReaderActivity.QrCodes.Donate -> {
+                charityLayout.visibility = View.VISIBLE
+            }
+            QrReaderActivity.QrCodes.Internet1, QrReaderActivity.QrCodes.Internet2, QrReaderActivity.QrCodes.Internet3 -> {
+                startActivity(ResultActivity.newIntent(applicationContext, qrCode))
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+                finish()
+            }
+            QrReaderActivity.QrCodes.Tariff -> {
+                tariffLayout.visibility = View.VISIBLE
+            }
+            QrReaderActivity.QrCodes.SMS -> {
+                smsLayout.visibility = View.VISIBLE
+            }
+            else -> {
+                finish()
+            }
         }
-        cancelButton.setOnClickListener {
-            finish()
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
+        approveButton.setOnClickListener {
+            startActivity(ResultActivity.newIntent(applicationContext, qrCode))
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
         }
     }
 
-    private fun sendSms(){
+    private fun sendSms() {
         request(
             service.sendSms(
                 SendSmsRequestModel(
