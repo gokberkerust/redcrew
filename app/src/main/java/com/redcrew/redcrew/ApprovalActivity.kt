@@ -38,6 +38,7 @@ class ApprovalActivity : AppCompatActivity() {
                 charityLayout.visibility = View.VISIBLE
             }
             QrReaderActivity.QrCodes.Internet1, QrReaderActivity.QrCodes.Internet2, QrReaderActivity.QrCodes.Internet3 -> {
+                RedCrewApp.listener?.onBackPressedCall()
                 startActivity(ResultActivity.newIntent(applicationContext, qrCode))
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
                 finish()
