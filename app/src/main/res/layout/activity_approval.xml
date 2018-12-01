@@ -2,7 +2,8 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorGreyBackground">
 
 
     <LinearLayout
@@ -10,14 +11,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="66dp"
+                android:src="@drawable/header"/>
+
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="320dp"
                 android:id="@+id/charityLayout"
                 android:orientation="vertical"
                 android:visibility="gone"
-                android:gravity="center_horizontal"
-                android:background="@color/colorGreyBackground">
+                android:gravity="center_horizontal">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -44,6 +50,7 @@
                     android:text="Bağış Yapılacaktır."
                     android:layout_marginTop="50dp"/>
 
+
         </LinearLayout>
 
         <LinearLayout
@@ -51,7 +58,7 @@
                 android:layout_height="320dp"
                 android:id="@+id/smsLayout"
                 android:orientation="vertical"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:gravity="center_horizontal">
 
             <TextView
@@ -69,14 +76,21 @@
                     android:textSize="32sp"
                     android:textStyle="bold"
                     android:text="RED CREW"
-                    android:layout_marginTop="50dp"/>
+                    android:layout_marginTop="30dp"/>
 
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="28sp"
-                    android:text="takımına SMS yollanıcaktır"
+                    android:text="takımına SMS yollanacaktır"
+                    android:layout_marginTop="30dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="SMS bedeli 2.69 TL'dir."
                     android:layout_marginTop="50dp"/>
 
         </LinearLayout>
