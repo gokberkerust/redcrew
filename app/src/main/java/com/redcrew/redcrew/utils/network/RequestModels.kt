@@ -15,3 +15,11 @@ data class SendSmsRequestPayload(
 data class SendSmsRequestModel(
     @SerializedName("sendSmsRequest") val sendSmsRequest: SendSmsRequestPayload
 )
+
+data class GetSmsRequestPayload(
+    @SerializedName("groupId") val senderAddress: String = "H2345"
+)
+
+data class GetSmsRequestModel(
+    @SerializedName("getSmsRequest") val getSmsRequest: GetSmsRequestPayload
+)

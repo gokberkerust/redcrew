@@ -5,9 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.redcrew.redcrew.utils.network.APIService
-import com.redcrew.redcrew.utils.network.SendSmsRequestModel
-import com.redcrew.redcrew.utils.network.SendSmsRequestPayload
+import com.redcrew.redcrew.utils.network.*
 import kotlinx.android.synthetic.main.activity_result.*
 import retrofit2.HttpException
 import rx.Single
@@ -34,7 +32,7 @@ class ResultActivity : AppCompatActivity() {
         when (qrCode) {
             QrReaderActivity.QrCodes.Donate -> {
                 charityResultLayout.visibility = View.VISIBLE
-                sendSms()
+                getSms()
             }
             QrReaderActivity.QrCodes.Tariff -> {
                 tariffResultLayout.visibility = View.VISIBLE
@@ -53,6 +51,17 @@ class ResultActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun getSms() {
+        request(
+            service.getSms(
+                GetSmsRequestModel(GetSmsRequestPayload())
+            ), {
+                sendSms()
+            }, {
+
+            })
     }
 
     private fun sendSms() {

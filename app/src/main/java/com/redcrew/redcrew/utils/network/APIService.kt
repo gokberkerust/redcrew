@@ -18,6 +18,9 @@ interface APIService {
     @POST("sendSms")
     fun sendSms(@Body requestModel: SendSmsRequestModel) : Single<SendSmsResponseModel>
 
+    @POST("getSms")
+    fun getSms(@Body requestModel: GetSmsRequestModel): Single<GetSmsResponseModel>
+
 
     companion object {
         private val headers = hashMapOf<String, String>()
