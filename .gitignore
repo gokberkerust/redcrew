@@ -1,11 +1,32 @@
+# Android Studio
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches/build_file_checksums.ser
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
+
+# Mac File Store
 .DS_Store
-/build
-/captures
+
+# Generated Files
+build/
+captures/
+
+# Gradle Files
+.gradle/
+
+# Log Files
+.log
+
+# Porperties Files
+/local.properties
+/secret.properties
+
+# Lint files
+*/lint.xml
+
+# apk files
+*.apk
+
+# output.json
+*/output.json
+
 .externalNativeBuild
+

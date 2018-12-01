@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">RedCrew</string>
     <string name="action_settings">Settings</string>
+
+    <string name="qr_reader_camera_denied_permission_info">QR kodunu okutmak için izin vermelisin</string>
+    <string name="qr_reader_camera_allow_permission_button">İzin Ver</string>
+    <string name="qr_reader_camera_denied_permanently_permission_info">QR kodunu okutmak için Ayarlar altından Yanımda uygulamasına kamera erişim izni vermelisin</string>
+
 </resources>
