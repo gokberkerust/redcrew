@@ -6,4 +6,8 @@
     <color name="colorblack">#000000</color>
     <color name="colorwhite">#FFFFFF</color>
     <color name="colorgrey">#4d4f51</color>
+    <color name="red">#ed0029</color>
+    <color name="lightGrey">#33445568</color>
+
+
 </resources>
