@@ -1,7 +1,6 @@
 package com.redcrew.redcrew
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            startActivity(QrActivity.newIntent(applicationContext))
+            startActivity(QrReaderActivity.newIntent(applicationContext))
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
         }
     }

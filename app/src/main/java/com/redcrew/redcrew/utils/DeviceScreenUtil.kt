@@ -1,4 +1,4 @@
-package com.redcrew.redcrew
+package com.redcrew.redcrew.utils
 
 import android.content.Context
 import android.view.WindowManager

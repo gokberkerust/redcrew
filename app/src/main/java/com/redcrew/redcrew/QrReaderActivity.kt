@@ -1,7 +1,6 @@
 package com.redcrew.redcrew
 
 import android.Manifest
-import android.animation.Animator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -11,13 +10,12 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.SurfaceHolder
-import android.view.ViewTreeObserver
-import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
+import com.redcrew.redcrew.utils.DeviceScreenUtil
 import kotlinx.android.synthetic.main.activity_qr.*
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.roundToInt
@@ -26,24 +24,34 @@ import kotlin.math.roundToInt
  * Created by Gökberk Erüst on 1.12.2018.
  *
  */
-class QrActivity : AppCompatActivity() {
+class QrReaderActivity : AppCompatActivity() {
 
     private var barcodeDetector: BarcodeDetector? = null
     private var toast: Toast? = null
     private var cameraSource: CameraSource? = null
     private val codeScanned = AtomicBoolean(false)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_qr)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initLayout()
+        initCameraSource()
+        startBarcodeDetection()
+    }
+
     override fun onResume() {
         super.onResume()
         initLayout()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_qr)
-        initLayout()
-        initCameraSource()
-        startBarcodeDetection()
+    override fun onDestroy() {
+        releaseBarcodeDetection()
+        qrReaderPreviewLayout.holder.surface.release()
+        super.onDestroy()
     }
 
     private fun initLayout() {
@@ -63,14 +71,13 @@ class QrActivity : AppCompatActivity() {
             }
         })
 
-
     }
 
-    private fun onSurfaceCreated(){
+    private fun onSurfaceCreated() {
         if (!isCameraPermissionGranted()) {
             requestForCameraPermission()
         } else {
-           onCameraPermissionGranted()
+            onCameraPermissionGranted()
         }
     }
 
@@ -86,8 +93,7 @@ class QrActivity : AppCompatActivity() {
                 detections?.detectedItems?.let {
                     if (it.size() > 0 && !codeScanned.getAndSet(true)) {
                         runOnUiThread {
-                            // presenter?.onQRCodeDetected(it.valueAt(0).displayValue)
-                            barcodeDetector?.release()
+                            onQrCodeDetected(it.valueAt(0).displayValue)
                         }
                     }
                 }
@@ -124,13 +130,6 @@ class QrActivity : AppCompatActivity() {
 
     }
 
-    override fun onDestroy() {
-        releaseBarcodeDetection()
-        qrReaderPreviewLayout.holder.surface.release()
-        super.onDestroy()
-    }
-
-
     private fun releaseBarcodeDetection() {
         runOnUiThread {
             cameraSource?.release()
@@ -147,7 +146,7 @@ class QrActivity : AppCompatActivity() {
 
     private fun requestForCameraPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(arrayOf(Manifest.permission.CAMERA),23)
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), 23)
         }
     }
 
@@ -161,9 +160,6 @@ class QrActivity : AppCompatActivity() {
                         onCameraPermissionGranted()
                     }
                     PackageManager.PERMISSION_DENIED -> {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            onCameraPermissionDenied(isNeverShowAgainChecked = !shouldShowRequestPermissionRationale(permissions.first()))
-                        }
                     }
                 }
             }
@@ -176,22 +172,25 @@ class QrActivity : AppCompatActivity() {
         startBarcodeDetection()
     }
 
-    private fun onCameraPermissionDenied(isNeverShowAgainChecked: Boolean) {
-
-        var buttonText: String? = ""
-        var infoText: String? = ""
-        if (isNeverShowAgainChecked) {
-            infoText = getString(R.string.qr_reader_camera_denied_permanently_permission_info)
-        } else {
-            infoText = getString(R.string.qr_reader_camera_denied_permission_info)
-            buttonText = getString(R.string.qr_reader_camera_allow_permission_button)
+    private fun onQrCodeDetected(code: String) {
+        println("QR CODE: $code")
+        val qrCode = when(code){
+            QrCodes.Donate.text -> QrCodes.Donate
+            QrCodes.Internet1.text -> QrCodes.Internet1
+            QrCodes.Internet2.text -> QrCodes.Internet2
+            QrCodes.Internet3.text -> QrCodes.Internet3
+            QrCodes.Tariff.text -> QrCodes.Tariff
+            QrCodes.SMS.text -> QrCodes.SMS
+            else -> QrCodes.UnRecognized
         }
-        showCameraPermissionInfo(infoText = infoText, buttonText = buttonText)
-
-    }
-
-    private fun showCameraPermissionInfo(infoText: String?, buttonText: String?) {
-
+        if(qrCode != QrCodes.UnRecognized){
+            barcodeDetector?.release()
+            startActivity(ConfirmationActivity.newIntent(applicationContext, qrCode))
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+        } else {
+            displayErrorToast()
+            startBarcodeDetection()
+        }
     }
 
     fun removeToastMessage() {
@@ -209,12 +208,22 @@ class QrActivity : AppCompatActivity() {
         toast?.show()
     }
 
+    enum class QrCodes(val text: String) {
+        Donate("Bağış"),
+        Internet1("internet1"),
+        Internet2("internet2"),
+        Internet3("internet3"),
+        Tariff("Paket"),
+        SMS("SMS"),
+        UnRecognized("unRecognized")
+    }
+
     companion object {
 
         private const val CAMERA_PERMISSION_KEY = 1224
 
         fun newIntent(context: Context): Intent {
-            return Intent(context, QrActivity::class.java)
+            return Intent(context, QrReaderActivity::class.java)
         }
     }
 }
