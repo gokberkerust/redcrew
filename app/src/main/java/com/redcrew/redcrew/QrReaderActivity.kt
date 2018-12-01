@@ -38,12 +38,13 @@ class QrReaderActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr)
+        initOperationsView()
+        initLayout()
+        initCameraSource()
     }
 
     override fun onStart() {
         super.onStart()
-        initLayout()
-        initCameraSource()
         startBarcodeDetection()
         RedCrewApp.listener = object : Listener {
             override fun onBackPressedCall() {
@@ -79,7 +80,9 @@ class QrReaderActivity : AppCompatActivity() {
                 onSurfaceCreated()
             }
         })
+    }
 
+    private fun initOperationsView(){
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         val counterTime = sharedPreferences.getLong(RedCrewApp.COUNTER_TIME_KEY, -1L)
         if (counterTime == -1L) {
@@ -217,6 +220,7 @@ class QrReaderActivity : AppCompatActivity() {
                     storeDate(sharedPreferences)
                 } else {
                     displayErrorToast("Günlük QR ile internet kazanma hakkınız dolmuştur. ${getRemainingTime(counterTime)} sonra tekrar deneyebilirsiniz")
+                    return
                 }
             }
             barcodeDetector?.release()
@@ -231,6 +235,7 @@ class QrReaderActivity : AppCompatActivity() {
     private fun storeDate(sharedPreferences: SharedPreferences) {
 
         val calender = Calendar.getInstance()
+        calender.add(Calendar.HOUR, RedCrewApp.COUNTER_TIME_HOUR_LIMIT)
         val editor = sharedPreferences.edit()
 
         editor.putLong(RedCrewApp.COUNTER_TIME_KEY, calender.timeInMillis)
@@ -241,11 +246,11 @@ class QrReaderActivity : AppCompatActivity() {
         val calendar = Calendar.getInstance()
         val currentTime = calendar.timeInMillis
 
-        val remainingTime = currentTime - counterTime
+        val remainingTime = counterTime - currentTime
         val remainingMinutes = remainingTime / (1000 * 60)
 
-        val remainingHours = remainingMinutes % 60
-        return "$remainingHours saat ${remainingMinutes.div(remainingHours)} dakika"
+        val remainingHours = remainingMinutes / 60
+        return "$remainingHours saat ${remainingMinutes - (remainingHours * 60)} dakika"
     }
 
     fun removeToastMessage() {
@@ -269,9 +274,9 @@ class QrReaderActivity : AppCompatActivity() {
         Internet1("internet1", true),
         Internet2("internet2", true),
         Internet3("internet3", true),
-        Tariff("Paket", true),
-        SMS("SMS", true),
-        UnRecognized("unRecognized", true)
+        Tariff("Paket", false),
+        SMS("SMS", false),
+        UnRecognized("unRecognized", false)
     }
 
     interface Listener {

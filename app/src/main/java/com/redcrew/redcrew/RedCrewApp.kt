@@ -10,6 +10,7 @@ class RedCrewApp: Application() {
 
     companion object {
         const val COUNTER_TIME_KEY = "counterTime"
+        const val COUNTER_TIME_HOUR_LIMIT = 12
 
         var listener: QrReaderActivity.Listener? = null
     }
