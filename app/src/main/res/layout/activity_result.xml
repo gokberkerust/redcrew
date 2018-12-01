@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:visibility="gone"
+                  android:gravity="center_horizontal"
+                  android:id="@+id/internetResultLayout">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Tebrikler!"
+                  android:textColor="@color/colorblack"
+                  android:textSize="32sp"
+                  android:layout_marginTop="80dp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="500MB"
+                  android:textColor="@color/colorblack"
+                  android:textSize="36sp"
+                  android:textStyle="bold"
+                  android:layout_marginTop="20dp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="kazandınız"
+                  android:textColor="@color/colorblack"
+                  android:textSize="32sp"
+                  android:layout_marginTop="20dp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="4 saat sonra tekrar bekleriz :)"
+                  android:textColor="@color/colorblack"
+                  android:textSize="24sp"
+                  android:layout_marginTop="60dp"/>
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingStart="12dp"
+                  android:paddingEnd="12dp"
+                  android:textAlignment="center"
+                  android:text="İnternetinizi 07/12/2018 20:00'e kadar keyifle kullanabilirsiniz."
+                  android:textColor="@color/colorblack"
+                  android:textSize="18sp"
+                  android:layout_marginTop="100dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:visibility="visible"
+                  android:id="@+id/smsResultLayout"
+                  android:gravity="center_horizontal">
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="VODAFONE HACKHATON "
+                  android:textColor="@color/colorblack"
+                  android:textSize="32sp"
+                  android:textStyle="bold"
+                  android:layout_marginTop="20dp"
+                  android:layout_centerHorizontal="true"/>
+
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:src="@drawable/redcrew"
+        android:layout_marginTop="20dp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Red Crew"
+                  android:textColor="@color/colorblack"
+                  android:textSize="32sp"
+                  android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true"/>
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingStart="12dp"
+                  android:paddingEnd="12dp"
+                  android:textAlignment="center"
+                  android:layout_centerHorizontal="true"
+                  android:text="SMS’iniz işleme alınmıştır"
+                  android:textColor="@color/colorblack"
+                  android:textSize="18sp"
+                  android:layout_marginTop="420dp"/>
+
+    </RelativeLayout>
+</LinearLayout>

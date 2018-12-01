@@ -26,6 +26,9 @@
                   />
         <activity android:name=".ApprovalActivity"
                   android:screenOrientation="portrait" />
+
+        <activity android:name=".ResultActivity"
+                  android:screenOrientation="portrait" />
     </application>
 
 </manifest>
