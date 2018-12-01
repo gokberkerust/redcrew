@@ -3,7 +3,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:gravity="center_horizontal">
+              android:gravity="center_horizontal"
+              android:background="@color/colorGreyBackground">
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
@@ -55,11 +56,11 @@
     </LinearLayout>
 
     <RelativeLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical"
-                  android:visibility="visible"
-                  android:id="@+id/smsResultLayout"
-                  android:gravity="center_horizontal">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:id="@+id/smsResultLayout"
+                    android:gravity="center_horizontal">
 
 
         <TextView android:layout_width="wrap_content"
@@ -71,9 +72,10 @@
                   android:layout_marginTop="20dp"
                   android:layout_centerHorizontal="true"/>
 
-        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:src="@drawable/redcrew"
-        android:layout_marginTop="20dp"/>
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/redcrew"
+                   android:layout_marginTop="20dp"/>
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
@@ -81,7 +83,7 @@
                   android:textColor="@color/colorblack"
                   android:textSize="32sp"
                   android:layout_marginTop="300dp"
-        android:layout_centerHorizontal="true"/>
+                  android:layout_centerHorizontal="true"/>
 
 
         <TextView android:layout_width="wrap_content"
@@ -96,4 +98,78 @@
                   android:layout_marginTop="420dp"/>
 
     </RelativeLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:visibility="gone"
+                  android:id="@+id/charityResultLayout">
+
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/losev"
+                   android:layout_marginTop="40dp"
+                   android:layout_gravity="center"
+        />
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Bağışınız SMS yoluyla yollanmıştır."
+                  android:textColor="@color/colorblack"
+                  android:textSize="32sp"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:layout_marginTop="50dp"/>
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:text="Mutluluk, paylaştıkça artar..."
+                  android:textColor="@color/colorblack"
+                  android:layout_gravity="center"
+                  android:textSize="24sp"
+                  android:layout_marginTop="60dp"/>
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingStart="12dp"
+                  android:paddingEnd="12dp"
+                  android:text="*5TL faturanıza yansıyacaktır."
+                  android:textColor="@color/colorblack"
+                  android:textSize="16sp"
+                  android:layout_marginTop="100dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:visibility="visible"
+                  android:gravity="center_horizontal"
+                  android:id="@+id/tariffResultLayout">
+
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/tariff_result"
+                   android:layout_marginTop="40dp"
+                   android:layout_gravity="center"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Tarife değişikliği talebiniz alınmıştır. Talebiniz tamamlandığında SMS ile bilgilendirileceksiniz.
+Talebinizin durumunu 'Tarifem ve paketlerim' menüsündeki 'İşlem Geçmişi' ekranından takip edebilirsiniz.
+"
+                  android:textColor="@color/colorblack"
+                  android:textSize="18sp"
+                  android:paddingStart="16dp"
+                  android:textAlignment="center"
+                  android:paddingEnd="18dp"
+                  android:layout_marginTop="80dp"/>
+
+
+    </LinearLayout>
+
 </LinearLayout>
