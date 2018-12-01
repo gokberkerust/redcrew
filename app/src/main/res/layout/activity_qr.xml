@@ -10,7 +10,7 @@
 
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="62dp"
             android:src="@drawable/header"/>
 
     <LinearLayout
@@ -29,7 +29,7 @@
     <TextView
             android:text="Karekodu okutmak için kamerayı yaklaştırınız."
             android:textColor="@color/colorgrey"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:id="@+id/qrReaderInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
