@@ -1,134 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <FrameLayout
-            android:id="@+id/qrReaderContainer"
+
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-
-        <android.support.constraint.ConstraintLayout
+        <SurfaceView
+                android:id="@+id/qrReaderPreviewLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="300dp"
+                app:layout_constraintDimensionRatio="1:1"/>
 
-            <SurfaceView
-                    android:id="@+id/qrReaderPreviewLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="1:1"/>
+    </LinearLayout>
 
-            <View
-                    android:id="@+id/qrReaderSquareView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="40dp"
-                    app:layout_constraintBottom_toBottomOf="@id/qrReaderPreviewLayout"
-                    app:layout_constraintDimensionRatio="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+            android:text="Kare kodu okutmak için kameayı yaklaştırınız."
+            android:textColor="@color/colorgrey"
+            android:textSize="16sp"
+            android:id="@+id/qrReaderInfoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4sp"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:visibility="visible"
+            tools:visibility="visible"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="36dp"
+                  android:layout_marginTop="6dp"
+                  android:padding="4dp"
+                  android:paddingStart="8dp"
+                  android:paddingEnd="8dp"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical"
+                  tools:ignore="UseCompoundDrawables">
+
+        <ImageView android:layout_width="40dp"
+                   android:layout_height="match_parent"
+                   android:src="@drawable/cross"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_marginStart="12dp"
+                  android:layout_height="match_parent"
+                  android:text="Internet Kazan"
+                  android:textSize="14sp"
+                  android:textStyle="normal"
+                  android:gravity="center"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="36dp"
+                  android:layout_marginTop="6dp"
+                  android:padding="4dp"
+                  android:paddingStart="8dp"
+                  android:paddingEnd="8dp"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical"
+                  tools:ignore="UseCompoundDrawables">
+
+        <ImageView android:layout_width="40dp"
+                   android:layout_height="match_parent"
+                   android:src="@drawable/check"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_marginStart="12dp"
+                  android:layout_height="match_parent"
+                  android:text="Bağış Yap"
+                  android:textSize="14sp"
+                  android:textStyle="bold"
+                  android:gravity="center"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="36dp"
+                  android:layout_marginTop="6dp"
+                  android:padding="4dp"
+                  android:paddingStart="8dp"
+                  android:paddingEnd="8dp"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical"
+                  tools:ignore="UseCompoundDrawables">
+
+        <ImageView android:layout_width="40dp"
+                   android:layout_height="match_parent"
+                   android:src="@drawable/check"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_marginStart="12dp"
+                  android:layout_height="match_parent"
+                  android:text="SMS Yolla"
+                  android:textSize="14sp"
+                  android:textStyle="bold"
+                  android:gravity="center"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="36dp"
+                  android:layout_marginTop="6dp"
+                  android:padding="4dp"
+                  android:paddingStart="8dp"
+                  android:paddingEnd="8dp"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical"
+                  tools:ignore="UseCompoundDrawables">
+
+        <ImageView android:layout_width="40dp"
+                   android:layout_height="match_parent"
+                   android:src="@drawable/check"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_marginStart="12dp"
+                  android:layout_height="match_parent"
+                  android:text="Tarife İşlemleri"
+                  android:textSize="14sp"
+                  android:textStyle="bold"
+                  android:gravity="center"
+        />
+
+    </LinearLayout>
 
 
-            <View
-                    android:id="@+id/qrReaderStartMask"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    app:layout_constraintEnd_toStartOf="@+id/qrReaderSquareView"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            <View
-                    android:layout_width="57dp"
-                    android:layout_height="1dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/qrReaderSquareView"
-                    app:layout_constraintStart_toStartOf="@id/qrReaderSquareView"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                    android:id="@+id/qrReaderEndMask"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/qrReaderSquareView" />
-
-            <View
-                    android:layout_width="57dp"
-                    android:layout_height="1dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/qrReaderSquareView"
-                    app:layout_constraintStart_toEndOf="@id/qrReaderSquareView"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/qrReaderSquareView"
-                    app:layout_constraintEnd_toStartOf="@+id/qrReaderEndMask"
-                    app:layout_constraintStart_toEndOf="@+id/qrReaderStartMask"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                    android:layout_width="1dp"
-                    android:layout_height="57dp"
-                    app:layout_constraintBottom_toTopOf="@id/qrReaderSquareView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/qrReaderSquareView" />
-
-
-            <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/qrReaderEndMask"
-                    app:layout_constraintStart_toEndOf="@+id/qrReaderStartMask"
-                    app:layout_constraintTop_toBottomOf="@+id/qrReaderSquareView" />
-
-            <View
-                    android:layout_width="1dp"
-                    android:layout_height="57dp"
-                    app:layout_constraintBottom_toBottomOf="@id/qrReaderSquareView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/qrReaderSquareView" />
-
-
-            <View
-                    android:id="@+id/qrReaderLaserView"
-                    android:layout_width="0dp"
-                    android:layout_height="4dp"
-                    android:layout_margin="1dp"
-                    app:layout_constraintEnd_toEndOf="@id/qrReaderSquareView"
-                    app:layout_constraintStart_toStartOf="@id/qrReaderSquareView"
-                    app:layout_constraintTop_toTopOf="@id/qrReaderSquareView" />
-
-        </android.support.constraint.ConstraintLayout>
-
-        <com.valensas.core.component.VLTextView
-                android:id="@+id/qrReaderInfoLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:lineSpacingExtra="4sp"
-                android:paddingEnd="32dp"
-                android:paddingStart="32dp"
-                android:text="@string/qr_code_reader_content"
-                android:textAppearance="@style/ToslaTextAppearance.Medium.XXLarge"
-                android:textColor="@color/colorWhite"
-                android:visibility="visible"
-                tools:visibility= "visible"/>
-
-    </FrameLayout>
-
-
-
-</FrameLayout>
+</LinearLayout>
