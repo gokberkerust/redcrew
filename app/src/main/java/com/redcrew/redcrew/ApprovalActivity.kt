@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import com.redcrew.redcrew.utils.network.APIService
 import com.redcrew.redcrew.utils.network.SendSmsRequestModel
 import com.redcrew.redcrew.utils.network.SendSmsRequestPayload
+import kotlinx.android.synthetic.main.activity_approval.*
 import kotlinx.android.synthetic.main.content_main.*
 import retrofit2.HttpException
 import rx.Single
@@ -24,14 +25,21 @@ class ApprovalActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_approval)
         initApiServices()
         initLayout()
     }
 
     private fun initLayout() {
-        mainActivityText.text = (intent.getSerializableExtra(QR_CODE_KEY) as QrReaderActivity.QrCodes).text
         sendSms()
+        approveButton.setOnClickListener {
+            startActivity(ResultActivity.newIntent(applicationContext))
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+        }
+        cancelButton.setOnClickListener {
+            finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
+        }
     }
 
     private fun sendSms(){
