@@ -1,168 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/background"
+    />
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:id="@+id/charityLayout"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:gravity="center_horizontal">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/charityName"
-                android:textSize="28dp"
-                android:text="Lösev Vakfına"
-                android:layout_marginTop="50dp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/charityAmount"
-                android:textSize="32dp"
-                android:textStyle="bold"
-                android:text="5TL"
-                android:layout_marginTop="50dp"/>
-
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="28dp"
-                android:text="Bağış Yapılacaktır."
-                android:layout_marginTop="50dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:id="@+id/smsLayout"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:gravity="center_horizontal">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/smsName"
-                android:textSize="28dp"
-                android:text="Hackathon 2018 için"
-                android:layout_marginTop="50dp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/teamName"
-                android:textSize="32dp"
-                android:textStyle="bold"
-                android:text="RED CREW"
-                android:layout_marginTop="50dp"/>
-
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="28dp"
-                android:text="takımına SMS yollanıcaktır"
-                android:layout_marginTop="50dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:id="@+id/tariffLayout"
-            android:orientation="vertical"
-            android:visibility="visible"
-            android:padding="18dp">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tariffName"
-                android:textSize="28dp"
-                android:text="Saçma Güzel Online M"
-                android:layout_marginTop="50dp"/>
+            android:layout_height="match_parent">
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="320dp"
+                android:id="@+id/charityLayout"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:gravity="center_horizontal">
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Instagram Paketi"/>
+                    android:id="@+id/charityName"
+                    android:textSize="28dp"
+                    android:text="Lösev Vakfına"
+                    android:layout_marginTop="50dp"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Gamer Video Paketi"/>
+                    android:id="@+id/charityAmount"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    android:text="5TL"
+                    android:layout_marginTop="50dp"/>
+
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Müzik Paketi"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Sınırsız Whatsapp"/>
+                    android:textSize="28dp"
+                    android:text="Bağış Yapılacaktır."
+                    android:layout_marginTop="50dp"/>
 
         </LinearLayout>
 
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:id="@+id/smsLayout"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:gravity="center_horizontal">
 
-    </LinearLayout>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/smsName"
+                    android:textSize="28dp"
+                    android:text="Hackathon 2018 için"
+                    android:layout_marginTop="50dp"/>
 
-    <TextView
-            android:layout_marginTop="12dp"
-            android:text="Talebiniz Gerçekleştirilecektir.\nOnaylıyor musunuz?"
-            android:textColor="@color/colorblack"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_marginBottom="12dp"
-            android:layout_width="match_parent"
-            android:id="@+id/approval_text"
-            android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teamName"
+                    android:textSize="32dp"
+                    android:textStyle="bold"
+                    android:text="RED CREW"
+                    android:layout_marginTop="50dp"/>
 
-    <LinearLayout
-            android:id="@+id/approvalButtonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
 
-        <Button
-                android:layout_width="280dp"
-                android:layout_height="48dp"
-                android:textColor="@color/colorwhite"
-                android:text="Evet"
-                android:background="@color/red"
-        />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="28dp"
+                    android:text="takımına SMS yollanıcaktır"
+                    android:layout_marginTop="50dp"/>
 
-        <Button
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:id="@+id/tariffLayout"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:padding="18dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tariffName"
+                    android:textSize="28dp"
+                    android:text="Saçma Güzel Online M"
+                    android:layout_marginTop="50dp"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Instagram Paketi"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Gamer Video Paketi"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Müzik Paketi"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Sınırsız Whatsapp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
                 android:layout_marginTop="12dp"
-                android:layout_width="280dp"
-                android:layout_height="48dp"
-                android:textColor="@color/colorwhite"
-                android:text="iptal"
-                android:background="@color/lightGrey"
-        />
+                android:text="Talebiniz Gerçekleştirilecektir.\nOnaylıyor musunuz?"
+                android:textColor="@color/colorblack"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent"
+                android:id="@+id/approval_text"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:id="@+id/approvalButtonLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+            <Button
+                    android:layout_width="280dp"
+                    android:layout_height="48dp"
+                    android:textColor="@color/colorwhite"
+                    android:text="Evet"
+                    android:background="@color/red"
+            />
+
+            <Button
+                    android:layout_marginTop="12dp"
+                    android:layout_width="280dp"
+                    android:layout_height="48dp"
+                    android:textColor="@color/colorwhite"
+                    android:text="iptal"
+                    android:background="@color/lightGrey"
+            />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
