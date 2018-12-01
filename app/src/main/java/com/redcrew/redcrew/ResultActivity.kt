@@ -6,17 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.redcrew.redcrew.utils.network.APIService
-import com.redcrew.redcrew.utils.network.SendSmsRequestModel
-import com.redcrew.redcrew.utils.network.SendSmsRequestPayload
-import kotlinx.android.synthetic.main.activity_approval.*
-import kotlinx.android.synthetic.main.activity_qr.*
 import kotlinx.android.synthetic.main.activity_result.*
-import kotlinx.android.synthetic.main.content_main.*
-import retrofit2.HttpException
-import rx.Single
-import rx.Subscription
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
 import java.util.*
 
 class ResultActivity : AppCompatActivity() {
