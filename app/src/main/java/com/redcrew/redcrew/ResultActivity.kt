@@ -32,13 +32,14 @@ class ResultActivity : AppCompatActivity() {
         when (qrCode) {
             QrReaderActivity.QrCodes.Donate -> {
                 charityResultLayout.visibility = View.VISIBLE
-                getSms()
+                getSms(message = "Lösev'e bağışınız alınmıştır.")
             }
             QrReaderActivity.QrCodes.Tariff -> {
                 tariffResultLayout.visibility = View.VISIBLE
             }
             QrReaderActivity.QrCodes.SMS -> {
                 smsResultLayout.visibility = View.VISIBLE
+                getSms(message = "RedCrew takımına Hackathon yarışması için 1 oy gönderdiniz. ")
             }
             QrReaderActivity.QrCodes.Internet1, QrReaderActivity.QrCodes.Internet2, QrReaderActivity.QrCodes.Internet3 -> {
                 val mbList = listOf("100 MB", "250 MB", "500 MB")
@@ -53,24 +54,24 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
-    private fun getSms() {
+    private fun getSms(message: String) {
         request(
             service.getSms(
                 GetSmsRequestModel(GetSmsRequestPayload())
             ), {
-                sendSms()
+                sendSms(message)
             }, {
 
             })
     }
 
-    private fun sendSms() {
+    private fun sendSms(message: String) {
         request(
             service.sendSms(
                 SendSmsRequestModel(
                     SendSmsRequestPayload(
                         endUserId = 905423872239,
-                        message = "Lösev'e bağışınız alınmıştır."
+                        message = message
                     )
                 )
             ), {
